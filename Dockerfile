@@ -5,7 +5,10 @@ ENV SERVER_ADDR=0.0.0.0 \
     PASSWORD=sample123 \
     METHOD=none \
     PROTOCOL=auth_chain_f \
-    OBFS=http_simple
+    PROTOCOL_PARAM="" \
+    OBFS=http_simple \
+    OBFS_PARAM=""
+
 
 
 ARG BRANCH=akkariiin/dev
@@ -21,4 +24,4 @@ WORKDIR /ssrr
 
 
 EXPOSE $SERVER_PORT
-CMD python shadowsocks/server.py -m $METHOD -s $SERVER_ADDR -p $SERVER_PORT -k $PASSWORD -o $OBFS -O $PROTOCOL
+CMD python shadowsocks/server.py -m $METHOD -s $SERVER_ADDR -p $SERVER_PORT -k $PASSWORD -o $OBFS -g $OBFS_PARAM -O $PROTOCOL -G $PROTOCOL_PARAM

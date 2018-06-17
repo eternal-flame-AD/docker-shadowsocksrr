@@ -23,8 +23,10 @@ SERVER_ADDR=0.0.0.0
 SERVER_PORT=80
 PASSWORD=sample123
 METHOD=none
+PROTOCOL_PARAM=""
 PROTOCOL=auth_chain_f
 OBFS=http_simple
+OBFS_PARAM=""
 ````
 
 如果不传递变量，所有值会存在默认参数（你可以什么都不改，但千万别不重置密码）。当然，这些默认参数未必合理或者说适合你当前的环境（因为默认参数是按我的习惯配置的）。  
