@@ -1,18 +1,6 @@
 FROM alpine:3.7
 
-ENV SERVER_ADDR=0.0.0.0 \
-    SERVER_PORT=80 \
-    PASSWORD=sample123 \
-    METHOD=none \
-    PROTOCOL=auth_chain_f \
-    PROTOCOL_PARAM="" \
-    OBFS=http_simple \
-    OBFS_PARAM=""
-
-
-
 ARG BRANCH=akkariiin/dev
-
 
 RUN apk --no-cache add python libsodium wget && \
     wget --no-check-certificate https://github.com/shadowsocksrr/shadowsocksr/archive/"$BRANCH".zip \
@@ -24,4 +12,4 @@ WORKDIR /ssrr
 
 
 EXPOSE $SERVER_PORT
-CMD python shadowsocks/server.py -m $METHOD -s $SERVER_ADDR -p $SERVER_PORT -k $PASSWORD -o $OBFS -g $OBFS_PARAM -O $PROTOCOL -G $PROTOCOL_PARAM
+ENTRYPOINT python 
